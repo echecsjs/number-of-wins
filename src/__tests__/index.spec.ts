@@ -1,13 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import {
-  gamesPlayedWithBlack,
-  gamesWon,
-  gamesWonWithBlack,
-  numberOfWins,
-  roundsElectedToPlay,
-  standardPoints,
-} from '../functions.js';
+import { tiebreak as gamesPlayedWithBlack } from '../black.js';
+import { tiebreak as roundsElectedToPlay } from '../elected.js';
+import { tiebreak as gamesWon } from '../games-won.js';
+import { tiebreak as numberOfWins } from '../index.js';
+import { tiebreak as standardPoints } from '../standard.js';
+import { tiebreak as gamesWonWithBlack } from '../won-with-black.js';
 
 import type { Game } from '../types.js';
 

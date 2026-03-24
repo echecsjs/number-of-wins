@@ -1,3 +1,21 @@
-export { gamesWonWithBlack as tiebreak } from './functions.js';
+import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
 
-export type { Game, GameKind, Player, Result } from './types.js';
+import type { Game } from './types.js';
+
+function gamesWonWithBlack(player: string, games: Game[][]): number {
+  let count = 0;
+  for (const g of gamesForPlayer(player, games)) {
+    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
+      continue;
+    }
+    // black wins when result (from white's perspective) = 0
+    if (g.black === player && g.result === 0) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+export { gamesWonWithBlack as tiebreak };
+
+export { type GameKind, type Player, type Result, type Game } from './types.js';

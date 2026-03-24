@@ -1,3 +1,15 @@
-export { roundsElectedToPlay as tiebreak } from './functions.js';
+import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
 
-export type { Game, GameKind, Player, Result } from './types.js';
+import type { Game } from './types.js';
+
+function roundsElectedToPlay(player: string, games: Game[][]): number {
+  const playerGames = gamesForPlayer(player, games);
+  const byeGames = playerGames.filter(
+    (g) => g.black === BYE_SENTINEL || g.white === BYE_SENTINEL,
+  );
+  return playerGames.length - byeGames.length;
+}
+
+export { roundsElectedToPlay as tiebreak };
+
+export { type GameKind, type Player, type Result, type Game } from './types.js';
