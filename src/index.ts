@@ -2,7 +2,7 @@ import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
 
 import type { Game } from './types.js';
 
-function numberOfWins(playerId: string, games: Game[]): number {
+function numberOfWins(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
     const playerResult = g.whiteId === playerId ? g.result : 1 - g.result;
@@ -13,7 +13,7 @@ function numberOfWins(playerId: string, games: Game[]): number {
   return count;
 }
 
-function gamesWon(playerId: string, games: Game[]): number {
+function gamesWon(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
     if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
@@ -27,7 +27,7 @@ function gamesWon(playerId: string, games: Game[]): number {
   return count;
 }
 
-function gamesPlayedWithBlack(playerId: string, games: Game[]): number {
+function gamesPlayedWithBlack(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
     if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
@@ -40,7 +40,7 @@ function gamesPlayedWithBlack(playerId: string, games: Game[]): number {
   return count;
 }
 
-function gamesWonWithBlack(playerId: string, games: Game[]): number {
+function gamesWonWithBlack(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
     if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
@@ -54,7 +54,7 @@ function gamesWonWithBlack(playerId: string, games: Game[]): number {
   return count;
 }
 
-function roundsElectedToPlay(playerId: string, games: Game[]): number {
+function roundsElectedToPlay(playerId: string, games: Game[][]): number {
   const playerGames = gamesForPlayer(playerId, games);
   const byeGames = playerGames.filter(
     (g) => g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL,
@@ -62,7 +62,7 @@ function roundsElectedToPlay(playerId: string, games: Game[]): number {
   return playerGames.length - byeGames.length;
 }
 
-function standardPoints(playerId: string, games: Game[]): number {
+function standardPoints(playerId: string, games: Game[][]): number {
   let total = 0;
   for (const g of gamesForPlayer(playerId, games)) {
     if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
