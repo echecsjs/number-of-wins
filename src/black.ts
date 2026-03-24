@@ -15,6 +15,6 @@ function gamesPlayedWithBlack(player: string, games: Game[][]): number {
   return count;
 }
 
-export { gamesPlayedWithBlack as tiebreak };
+export { gamesPlayedWithBlack, gamesPlayedWithBlack as tiebreak };
 
 export { type GameKind, type Player, type Result, type Game } from './types.js';

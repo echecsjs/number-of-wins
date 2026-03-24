@@ -19,6 +19,6 @@ function standardPoints(player: string, games: Game[][]): number {
   return total;
 }
 
-export { standardPoints as tiebreak };
+export { standardPoints, standardPoints as tiebreak };
 
 export { type GameKind, type Player, type Result, type Game } from './types.js';

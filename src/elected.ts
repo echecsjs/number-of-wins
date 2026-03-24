@@ -10,6 +10,6 @@ function roundsElectedToPlay(player: string, games: Game[][]): number {
   return playerGames.length - byeGames.length;
 }
 
-export { roundsElectedToPlay as tiebreak };
+export { roundsElectedToPlay, roundsElectedToPlay as tiebreak };
 
 export { type GameKind, type Player, type Result, type Game } from './types.js';
