@@ -5,7 +5,7 @@ import type { Game } from './types.js';
 function numberOfWins(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
-    const playerResult = g.whiteId === playerId ? g.result : 1 - g.result;
+    const playerResult = g.white === playerId ? g.result : 1 - g.result;
     if (playerResult === 1) {
       count += 1;
     }
@@ -16,10 +16,10 @@ function numberOfWins(playerId: string, games: Game[][]): number {
 function gamesWon(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
-    if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
+    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
       continue;
     }
-    const playerResult = g.whiteId === playerId ? g.result : 1 - g.result;
+    const playerResult = g.white === playerId ? g.result : 1 - g.result;
     if (playerResult === 1) {
       count += 1;
     }
@@ -30,10 +30,10 @@ function gamesWon(playerId: string, games: Game[][]): number {
 function gamesPlayedWithBlack(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
-    if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
+    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
       continue;
     }
-    if (g.blackId === playerId) {
+    if (g.black === playerId) {
       count += 1;
     }
   }
@@ -43,11 +43,11 @@ function gamesPlayedWithBlack(playerId: string, games: Game[][]): number {
 function gamesWonWithBlack(playerId: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(playerId, games)) {
-    if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
+    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
       continue;
     }
     // black wins when result (from white's perspective) = 0
-    if (g.blackId === playerId && g.result === 0) {
+    if (g.black === playerId && g.result === 0) {
       count += 1;
     }
   }
@@ -57,7 +57,7 @@ function gamesWonWithBlack(playerId: string, games: Game[][]): number {
 function roundsElectedToPlay(playerId: string, games: Game[][]): number {
   const playerGames = gamesForPlayer(playerId, games);
   const byeGames = playerGames.filter(
-    (g) => g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL,
+    (g) => g.black === BYE_SENTINEL || g.white === BYE_SENTINEL,
   );
   return playerGames.length - byeGames.length;
 }
@@ -65,10 +65,10 @@ function roundsElectedToPlay(playerId: string, games: Game[][]): number {
 function standardPoints(playerId: string, games: Game[][]): number {
   let total = 0;
   for (const g of gamesForPlayer(playerId, games)) {
-    if (g.blackId === BYE_SENTINEL || g.whiteId === BYE_SENTINEL) {
+    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
       continue;
     }
-    const playerResult = g.whiteId === playerId ? g.result : 1 - g.result;
+    const playerResult = g.white === playerId ? g.result : 1 - g.result;
     const opponentResult = 1 - playerResult;
     if (playerResult > opponentResult) {
       total += 1;

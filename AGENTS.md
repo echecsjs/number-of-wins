@@ -83,8 +83,8 @@ pnpm lint && pnpm test && pnpm build
 
 - All six functions count games or results matching a specific criterion for
   `playerId`; they never aggregate opponents' statistics.
-- A `Game` with `blackId: ''` (empty string) represents a **bye**. Handling
-  varies by function:
+- A `Game` with `black: ''` (empty string) represents a **bye**. Handling varies
+  by function:
   - `numberOfWins` includes bye wins (FIDE counts them as wins).
   - `gamesWon` excludes bye wins (only real game wins count).
   - `gamesPlayedWithBlack` and `gamesWonWithBlack` exclude byes (no colour
