@@ -31,6 +31,13 @@ All functions conform to the signature:
 `games[1]` contains round-2 games, and so on. The `Game` type no longer has a
 `round` field — round is determined by array position.
 
+The `Game` type carries an optional `kind?: GameKind` field. When present it
+identifies the nature of an unplayed round (e.g. `'half-bye'`, `'full-bye'`,
+`'forfeit-win'`, `'forfeit-loss'`, `'zero-bye'`, `'pairing-bye'`). Functions in
+this package use `kind` to distinguish between bye types when determining
+whether a round counts toward `roundsElectedToPlay` (7.6) and whether a win is
+over-the-board (`gamesWon`, 7.2) vs. any type (`numberOfWins`, 7.1).
+
 FIDE reference: https://handbook.fide.com/chapter/TieBreakRegulations032026
 (sections 7.1–7.4 and 7.6–7.8 — Win-counting tiebreaks)
 

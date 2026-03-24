@@ -20,23 +20,29 @@ npm install @echecs/number-of-wins
 
 ```typescript
 import { numberOfWins } from '@echecs/number-of-wins';
+import type { Game, GameKind } from '@echecs/number-of-wins';
 
 // games[n] = round n+1; Game has no `round` field
-const games = [
+const games: Game[][] = [
   [{ black: 'B', result: 1, white: 'A' }], // round 1
   [{ black: 'C', result: 0.5, white: 'A' }], // round 2
   [{ black: 'A', result: 0, white: 'D' }], // round 3
+  // kind distinguishes bye types for roundsElectedToPlay
+  [{ black: '', kind: 'half-bye', result: 0.5, white: 'A' }], // round 4
 ];
 
 const wins = numberOfWins('A', games);
-// Returns 1 (one win including forfeit wins)
+// Returns 1 (one win including forfeit wins, byes are not wins here)
 ```
 
 ## API
 
 All functions accept `(playerId: string, games: Game[][], players?: Player[])`
 and return `number`. Round is determined by array position: `games[0]` = round
-1, `games[1]` = round 2, etc. The `Game` type has no `round` field.
+1, `games[1]` = round 2, etc. The `Game` type has no `round` field. The optional
+`kind?: GameKind` field on `Game` classifies unplayed rounds; values:
+`'forfeit-loss'`, `'forfeit-win'`, `'full-bye'`, `'half-bye'`, `'pairing-bye'`,
+`'zero-bye'`.
 
 ### `numberOfWins(playerId, games, players?)`
 
