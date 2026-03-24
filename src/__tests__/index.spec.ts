@@ -7,7 +7,7 @@ import {
   numberOfWins,
   roundsElectedToPlay,
   standardPoints,
-} from '../index.js';
+} from '../functions.js';
 
 import type { Game } from '../types.js';
 

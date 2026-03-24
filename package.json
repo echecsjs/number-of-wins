@@ -29,6 +29,26 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./black": {
+      "import": "./dist/black.js",
+      "types": "./dist/black.d.ts"
+    },
+    "./elected": {
+      "import": "./dist/elected.js",
+      "types": "./dist/elected.d.ts"
+    },
+    "./games-won": {
+      "import": "./dist/games-won.js",
+      "types": "./dist/games-won.d.ts"
+    },
+    "./standard": {
+      "import": "./dist/standard.js",
+      "types": "./dist/standard.d.ts"
+    },
+    "./won-with-black": {
+      "import": "./dist/won-with-black.js",
+      "types": "./dist/won-with-black.d.ts"
     }
   },
   "files": [
@@ -48,7 +68,6 @@
     "typescript"
   ],
   "license": "MIT",
-  "main": "dist/index.js",
   "name": "@echecs/number-of-wins",
   "publishConfig": {
     "access": "public"
@@ -72,6 +91,5 @@
   },
   "sideEffects": false,
   "type": "module",
-  "types": "dist/index.d.ts",
-  "version": "0.3.0"
+  "version": "1.0.0"
 }
