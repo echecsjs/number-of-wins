@@ -24,8 +24,12 @@ Pure calculation library, no runtime dependencies. Exports six functions:
 All functions conform to the signature:
 
 ```ts
-(playerId: string, players: Player[], games: Game[]) => number;
+(playerId: string, games: Game[][], players?: Player[]) => number;
 ```
+
+`Game[][]` is a round-indexed structure: `games[0]` contains round-1 games,
+`games[1]` contains round-2 games, and so on. The `Game` type no longer has a
+`round` field — round is determined by array position.
 
 FIDE reference: https://handbook.fide.com/chapter/TieBreakRegulations032026
 (sections 7.1–7.4 and 7.6–7.8 — Win-counting tiebreaks)
@@ -90,9 +94,8 @@ pnpm lint && pnpm test && pnpm build
     type for the relevant flag).
   - `standardPoints` counts only games with the standard time control as
     indicated by a field on the `Game` type.
-- The `players` parameter is accepted for API consistency across the tiebreak
-  family but most functions in this package do not use it — they only require
-  `playerId` and `games`.
+- The `players` parameter is optional; most functions in this package do not use
+  it — they only require `playerId` and `games`.
 - **No runtime dependencies** — keep it that way.
 - **ESM-only** — the package ships only ESM. Do not add a CJS build.
 

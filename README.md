@@ -21,10 +21,11 @@ npm install @echecs/number-of-wins
 ```typescript
 import { numberOfWins } from '@echecs/number-of-wins';
 
+// games[n] = round n+1; Game has no `round` field
 const games = [
-  { blackId: 'B', result: 1, round: 1, whiteId: 'A' },
-  { blackId: 'C', result: 0.5, round: 2, whiteId: 'A' },
-  { blackId: 'A', result: 0, round: 3, whiteId: 'D' },
+  [{ blackId: 'B', result: 1, whiteId: 'A' }], // round 1
+  [{ blackId: 'C', result: 0.5, whiteId: 'A' }], // round 2
+  [{ blackId: 'A', result: 0, whiteId: 'D' }], // round 3
 ];
 
 const wins = numberOfWins('A', games);
@@ -33,35 +34,35 @@ const wins = numberOfWins('A', games);
 
 ## API
 
-All functions accept `(playerId: string, games: Game[])` and return `number`.
-They are drop-in compatible with the shared `Tiebreak` type
-`(playerId: string, games: Game[], players: Player[]) => number`.
+All functions accept `(playerId: string, games: Game[][], players?: Player[])`
+and return `number`. Round is determined by array position: `games[0]` = round
+1, `games[1]` = round 2, etc. The `Game` type has no `round` field.
 
-### `numberOfWins(playerId, games)`
+### `numberOfWins(playerId, games, players?)`
 
 **FIDE section 7.1** — Total number of wins. Counts all games where `playerId`
 scored 1 point, including forfeit wins (bye rounds that award a full point).
 
-### `gamesWon(playerId, games)`
+### `gamesWon(playerId, games, players?)`
 
 **FIDE section 7.2** — Wins in played games only. Like `numberOfWins` but
 excludes bye rounds — only counts wins from over-the-board games.
 
-### `gamesPlayedWithBlack(playerId, games)`
+### `gamesPlayedWithBlack(playerId, games, players?)`
 
 **FIDE section 7.3** — Number of games played with the black pieces. Byes have
 no colour assignment and are excluded.
 
-### `gamesWonWithBlack(playerId, games)`
+### `gamesWonWithBlack(playerId, games, players?)`
 
 **FIDE section 7.4** — Number of wins with the black pieces. Byes are excluded.
 
-### `roundsElectedToPlay(playerId, games)`
+### `roundsElectedToPlay(playerId, games, players?)`
 
 **FIDE section 7.6** — Number of rounds the player chose to participate in.
 Returns the total number of games minus bye rounds.
 
-### `standardPoints(playerId, games)`
+### `standardPoints(playerId, games, players?)`
 
 **FIDE section 7.8** — Points from standard (classical) time-control games.
 Counts only over-the-board results — wins score 1, draws score 0.5, losses
