@@ -1,11 +1,11 @@
-import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
+import { gamesForPlayer } from './utilities.js';
 
 import type { Game } from './types.js';
 
 function gamesPlayedWithBlack(player: string, games: Game[][]): number {
   let count = 0;
   for (const g of gamesForPlayer(player, games)) {
-    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
+    if (g.black === g.white) {
       continue;
     }
     if (g.black === player) {

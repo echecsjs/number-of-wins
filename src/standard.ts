@@ -1,11 +1,11 @@
-import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
+import { gamesForPlayer } from './utilities.js';
 
 import type { Game } from './types.js';
 
 function standardPoints(player: string, games: Game[][]): number {
   let total = 0;
   for (const g of gamesForPlayer(player, games)) {
-    if (g.black === BYE_SENTINEL || g.white === BYE_SENTINEL) {
+    if (g.black === g.white) {
       continue;
     }
     const playerResult = g.white === player ? g.result : 1 - g.result;

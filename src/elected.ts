@@ -1,12 +1,10 @@
-import { BYE_SENTINEL, gamesForPlayer } from './utilities.js';
+import { gamesForPlayer } from './utilities.js';
 
 import type { Game } from './types.js';
 
 function roundsElectedToPlay(player: string, games: Game[][]): number {
   const playerGames = gamesForPlayer(player, games);
-  const byeGames = playerGames.filter(
-    (g) => g.black === BYE_SENTINEL || g.white === BYE_SENTINEL,
-  );
+  const byeGames = playerGames.filter((g) => g.black === g.white);
   return playerGames.length - byeGames.length;
 }
 
