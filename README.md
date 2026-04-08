@@ -1,7 +1,6 @@
 # Number of Wins
 
 [![npm](https://img.shields.io/npm/v/@echecs/number-of-wins)](https://www.npmjs.com/package/@echecs/number-of-wins)
-[![Test](https://github.com/mormubis/number-of-wins/actions/workflows/test.yml/badge.svg)](https://github.com/mormubis/number-of-wins/actions/workflows/test.yml)
 [![Coverage](https://codecov.io/gh/mormubis/number-of-wins/branch/main/graph/badge.svg)](https://codecov.io/gh/mormubis/number-of-wins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
