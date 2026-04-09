@@ -4,6 +4,8 @@ Agent guidance for the `@echecs/number-of-wins` repository — a TypeScript
 library implementing win-counting tiebreaks following FIDE Tiebreak Regulations
 (sections 7.1–7.4 and 7.6–7.8).
 
+**See also:** [`REFERENCES.md`](REFERENCES.md) | [`SPEC.md`](SPEC.md)
+
 See the root `AGENTS.md` for workspace-wide conventions.
 
 **Backlog:** tracked in
@@ -108,6 +110,16 @@ pnpm lint && pnpm test && pnpm build
   it — they only require `playerId` and `games`.
 - **No runtime dependencies** — keep it that way.
 - **ESM-only** — the package ships only ESM. Do not add a CJS build.
+
+---
+
+## Tiebreak Signature
+
+All tiebreak functions consumed by `@echecs/tournament` must conform to:
+
+```typescript
+(playerId: string, games: Game[], players: Map<string, Player>) => number;
+```
 
 ---
 
