@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.1 — 2026-04-09
+
+### Fixed
+
+- corrected all function signatures (removed non-existent `players` parameter)
+- documented subpath exports (`/black`, `/elected`, `/games-won`, `/standard`,
+  `/won-with-black`)
+- documented `tiebreak` export aliases
+- documented `Result` and `Player` type exports
+
 ## 3.0.0 — 2026-03-25
 
 ### Changed
