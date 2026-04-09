@@ -61,8 +61,11 @@
   "keywords": [
     "chess",
     "fide",
+    "games-with-black",
+    "games-won",
     "no-dependencies",
     "number-of-wins",
+    "swiss",
     "tiebreak",
     "tournament",
     "typescript"
@@ -91,5 +94,5 @@
   },
   "sideEffects": false,
   "type": "module",
-  "version": "3.0.1"
+  "version": "3.0.2"
 }
