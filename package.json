@@ -1,7 +1,7 @@
 {
   "author": "Adrian de la Rosa <adrian@delarosab.me>",
   "bugs": {
-    "url": "https://github.com/mormubis/number-of-wins/issues"
+    "url": "https://github.com/echecsjs/number-of-wins/issues"
   },
   "description": "Win-counting tiebreaks for chess tournaments following FIDE rules. Includes Number of Wins, Games Won, Games with Black, Games Won with Black, Rounds Elected to Play, and Standard Points. Zero dependencies.",
   "devDependencies": {
@@ -57,7 +57,7 @@
     "README.md",
     "CHANGELOG.md"
   ],
-  "homepage": "https://github.com/mormubis/number-of-wins#readme",
+  "homepage": "https://github.com/echecsjs/number-of-wins#readme",
   "keywords": [
     "chess",
     "fide",
@@ -77,7 +77,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mormubis/number-of-wins.git"
+    "url": "https://github.com/echecsjs/number-of-wins.git"
   },
   "scripts": {
     "build": "tsdown",

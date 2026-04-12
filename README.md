@@ -1,7 +1,7 @@
 # Number of Wins
 
 [![npm](https://img.shields.io/npm/v/@echecs/number-of-wins)](https://www.npmjs.com/package/@echecs/number-of-wins)
-[![Coverage](https://codecov.io/gh/mormubis/number-of-wins/branch/main/graph/badge.svg)](https://codecov.io/gh/mormubis/number-of-wins)
+[![Coverage](https://codecov.io/gh/echecsjs/number-of-wins/branch/main/graph/badge.svg)](https://codecov.io/gh/echecsjs/number-of-wins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Number of Wins** is a TypeScript library implementing win-counting tiebreaks
@@ -133,4 +133,4 @@ import type { Game, GameKind, Player, Result } from '@echecs/number-of-wins';
 ## Contributing
 
 Contributions are welcome. Please open an issue at
-[github.com/mormubis/number-of-wins/issues](https://github.com/mormubis/number-of-wins/issues).
+[github.com/echecsjs/number-of-wins/issues](https://github.com/echecsjs/number-of-wins/issues).
