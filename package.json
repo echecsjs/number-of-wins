@@ -73,6 +73,7 @@
   ],
   "license": "MIT",
   "name": "@echecs/number-of-wins",
+  "packageManager": "pnpm@10.33.0",
   "publishConfig": {
     "access": "public"
   },
