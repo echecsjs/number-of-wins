@@ -1,13 +1,13 @@
-import type { Tiebreak } from '@echecs/tournament';
+import type { CompletedRound, Tiebreak } from '@echecs/tournament';
+
+const isPlayerInRound = (player: string, round: CompletedRound): boolean =>
+  round.games.some((g) => g.white === player || g.black === player);
 
 const roundsElectedToPlay: Tiebreak = (player, rounds, _players) => {
   let count = 0;
   for (const round of rounds) {
-    for (const g of round.games) {
-      if (g.white === player || g.black === player) {
-        count += 1;
-        break;
-      }
+    if (isPlayerInRound(player, round)) {
+      count += 1;
     }
   }
   return count;
